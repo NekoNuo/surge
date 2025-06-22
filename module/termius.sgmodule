@@ -7,7 +7,7 @@
 hostname = %APPEND% api.termius.com
 
 [Script]
-termius-trial2pro = type=http-response,pattern=https://api\.termius\.com/api/v4/bulk/account/,script-path=termius-trial2pro.js,requires-body=true,max-size=1048576
+termius-trial2pro = type=http-response,pattern=https://api\.termius\.com/api/v4/bulk/account/,script-path=https://raw.githubusercontent.com/NekoNuo/surge/refs/heads/main/js/termius-trial2pro.js,requires-body=true,max-size=1048576
 
 [Rewrite]
 ^https://api\.termius\.com/api/v4/bulk/account/ script-response-body termius-trial2pro
