@@ -9,5 +9,9 @@ hostname = %APPEND% api.termius.com
 
 [Body Rewrite]
 http-response-jq ^https:\/\/api\.termius\.com\/api\/v4\/bulk\/account\/ 'if .account then .account.plan_type = "Pro" | .account.user_type = "Pro" end | if .access_objects then .access_objects |= map(if .title == "Trial" then .title = "Pro" else . end) end | if .trial and .trial.trial_type == "Individual" then .trial.trial_type = "Pro" else . end'
+# http-response-jq ^https:\/\/api\.termius\.com\/socket\.io\/grpc-proxy\/ 'if .[1] == "finalResponse" then .[2].bulkAccount.account.planType = "Pro" | .[2].bulkAccount.account.userType = "Pro" else . end'
+http-response-jq ^https:\/\/api\.termius\.com\/socket\.io\/grpc-proxy\/ '.[1] == "finalResponse" and .[2].bulkAccount.account.planType = "Pro" | .[2].bulkAccount.account.userType = "Pro"'
+
+
 
 
