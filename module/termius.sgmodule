@@ -6,9 +6,8 @@
 [MITM]
 hostname = %APPEND% api.termius.com
 
-[Script]
-termius-trial2pro = type=http-response,pattern=https://api\.termius\.com/api/v4/bulk/account/,script-path=https://raw.githubusercontent.com/NekoNuo/surge/refs/heads/main/js/termius-trial2pro.js,requires-body=true,max-size=1048576
 
-[Rewrite]
-^https://api\.termius\.com/api/v4/bulk/account/ script-response-body termius-trial2pro
+[Body Rewrite]
+http-response-jq ^https:\/\/api\.termius\.com\/api\/v4\/bulk\/account\/ 'if .account then .account.plan_type = "Pro" | .account.user_type = "Pro" end | if .access_objects then .access_objects |= map(if .title == "Trial" then .title = "Pro" else . end) end | if .trial and .trial.trial_type == "Individual" then .trial.trial_type = "Pro" else . end'
+
 
