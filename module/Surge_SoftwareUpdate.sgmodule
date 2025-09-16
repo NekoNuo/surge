@@ -1,10 +1,10 @@
-#!name=Block OTA update for iOS and iPadOS
+#!name=Block OTA update for iOS and iPadOS and MacOS
 #!desc=屏蔽 iOS/iPadOS 系统更新，无 iPad 设备可在「主机名」添加「-mesu.apple.com」
 #!category=Brian
 
 [Rule]
 DOMAIN,gdmf.apple.com,REJECT
-
+DOMAIN,swdist.apple.com,REJECT
 [URL Rewrite]
 # iPadOS
 ^https:\/\/mesu\.apple\.com\/assets\/com_apple_MobileAsset_SoftwareUpdate\/com_apple_MobileAsset_SoftwareUpdate\.xml - reject
