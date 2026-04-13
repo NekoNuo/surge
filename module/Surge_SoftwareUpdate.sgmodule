@@ -1,6 +1,6 @@
 #!name=Block OTA update for iOS and iPadOS and MacOS
 #!desc=屏蔽 iOS/iPadOS/macOS 系统更新
-#!category=Brian
+#!category=BlockOTA
 
 [Rule]
 DOMAIN,gdmf.apple.com,REJECT
