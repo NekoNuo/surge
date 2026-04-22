@@ -10,17 +10,14 @@ DOMAIN,swcdn.apple.com,REJECT
 DOMAIN,appldnld.apple.com,REJECT
 DOMAIN,updates.cdn-apple.com,REJECT
 DOMAIN,mesu.apple.com,REJECT
+DOMAIN,xp.apple.com,REJECT
+
 
 [URL Rewrite]
 # iOS / iPadOS OTA
-^https?:\/\/mesu\.apple\.com\/assets\/com_apple_MobileAsset_SoftwareUpdate\/ - reject
-^https?:\/\/mesu\.apple\.com\/assets\/com_apple_MobileAsset_SoftwareUpdateDocumentation\/ - reject
-^https?:\/\/gdmf\.apple\.com\/v2\/assets - reject
+# iPadOS
+^https:\/\/mesu\.apple\.com\/assets\/com_apple_MobileAsset_SoftwareUpdate\/com_apple_MobileAsset_SoftwareUpdate\.xml - reject
 
-# macOS
-^https?:\/\/swscan\.apple\.com\/.*\.sucatalog - reject
-^https?:\/\/swdist\.apple\.com\/.*\.dist - reject
-^https?:\/\/swcdn\.apple\.com\/.*\.pkg - reject
 
 [MITM]
 hostname = %APPEND% mesu.apple.com, gdmf.apple.com, swdist.apple.com, swscan.apple.com
