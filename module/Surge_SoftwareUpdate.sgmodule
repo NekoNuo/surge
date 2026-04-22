@@ -15,7 +15,6 @@ DOMAIN,mesu.apple.com,REJECT
 # iOS / iPadOS OTA
 ^https?:\/\/mesu\.apple\.com\/assets\/com_apple_MobileAsset_SoftwareUpdate\/ - reject
 ^https?:\/\/mesu\.apple\.com\/assets\/com_apple_MobileAsset_SoftwareUpdateDocumentation\/ - reject
-^https?:\/\/xp\.apple\.com\/.*\/enrollments - reject
 ^https?:\/\/gdmf\.apple\.com\/v2\/assets - reject
 
 # macOS
@@ -24,4 +23,4 @@ DOMAIN,mesu.apple.com,REJECT
 ^https?:\/\/swcdn\.apple\.com\/.*\.pkg - reject
 
 [MITM]
-hostname = %APPEND% mesu.apple.com, gdmf.apple.com, swdist.apple.com, swscan.apple.com, xp.apple.com
+hostname = %APPEND% mesu.apple.com, gdmf.apple.com, swdist.apple.com, swscan.apple.com
